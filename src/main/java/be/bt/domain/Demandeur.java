@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name="demandeurs")
-@DiscriminatorValue("PERMANENT_EMP")
+@DiscriminatorValue("demandeurs")
 public class Demandeur extends User {
 
     private String CV;

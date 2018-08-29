@@ -31,7 +31,7 @@ public class ItfinderApplication {
         SpringApplication.run(ItfinderApplication.class, args);
     }
 
-
+/*
     @Bean
     CommandLineRunner runIt() {
         return args -> {
@@ -48,5 +48,5 @@ public class ItfinderApplication {
             demandeurRepository.save(d);
 
         };
-    }
+    }*/
 }
