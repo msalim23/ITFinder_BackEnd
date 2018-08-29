@@ -40,16 +40,12 @@ public class DemandeurController {
 
     @DeleteMapping(value = "/demandeur/delete/{id}")
     public void deleteDemandeur (@PathVariable String id){
-        List<Demandeur> dem = getAll();
-        Demandeur aSupprimer=null;
-        for(Demandeur d : dem){
-            if(d.getId().equals(id)){
-                aSupprimer=d;
-            }
-        }
-
-        demandeurRepository.delete(aSupprimer);
+        demandeurRepository.deleteById(id);
     }
 
+    @PutMapping(value = "/demandeur/update")
+    public void updateOffre( @RequestBody Demandeur p) {
 
+        demandeurRepository.save(p);
+    }
 }

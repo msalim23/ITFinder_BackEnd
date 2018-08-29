@@ -37,21 +37,19 @@ public class OffreController {
     }
 
     @PostMapping(value = "/offre/add")
-    public void addDemandeur( @RequestBody Offre p) {
+    public void addOffre( @RequestBody Offre p) {
+        offreRepository.save(p);
+    }
+
+    @PutMapping(value = "/offre/update")
+    public void updateOffre( @RequestBody Offre p) {
+
         offreRepository.save(p);
     }
 
     @DeleteMapping(value = "/offre/delete/{id}")
     public void deleteDemandeur (@PathVariable String id){
-        List<Offre> dem = getAll();
-        Offre aSupprimer=null;
-        for(Offre d : dem){
-            if(d.getId().equals(id)){
-                aSupprimer=d;
-            }
-        }
-
-        offreRepository.delete(aSupprimer);
+        offreRepository.deleteById(id);
     }
 
 
