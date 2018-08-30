@@ -34,8 +34,9 @@ public class DemandeurController {
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping(value = "/add")
+    @PostMapping(value = "/")
     public void addDemandeur( @RequestBody Demandeur p) {
+
         demandeurRepository.save(p);
     }
 

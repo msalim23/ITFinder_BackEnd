@@ -31,8 +31,8 @@ public class ItfinderApplication {
         SpringApplication.run(ItfinderApplication.class, args);
     }
 
-/*
-    @Bean
+
+    /*@Bean
     CommandLineRunner runIt() {
         return args -> {
 
