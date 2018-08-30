@@ -14,18 +14,19 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value = "/offres")
 @CrossOrigin(origins="*")
 public class OffreController {
 
     @Autowired
     IOffreRepository offreRepository;
 
-    @GetMapping(value= {"/offres"})
+    @GetMapping(value= {""})
     public List<Offre> getAll() {
         return offreRepository.findAll();
     }
 
-    @GetMapping(value= {"/offre/{id}"})
+    @GetMapping(value= {"/{id}"})
     public ResponseEntity<Offre> getById(@PathVariable String id) {
 
         Optional<Offre> result = offreRepository.findById(id);
@@ -36,18 +37,18 @@ public class OffreController {
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping(value = "/offre/add")
+    @PostMapping(value = "/")
     public void addOffre( @RequestBody Offre p) {
         offreRepository.save(p);
     }
 
-    @PutMapping(value = "/offre/update")
+    @PutMapping(value = "/update")
     public void updateOffre( @RequestBody Offre p) {
 
         offreRepository.save(p);
     }
 
-    @DeleteMapping(value = "/offre/delete/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public void deleteDemandeur (@PathVariable String id){
         offreRepository.deleteById(id);
     }

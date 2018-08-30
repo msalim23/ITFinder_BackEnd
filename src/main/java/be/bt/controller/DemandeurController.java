@@ -11,18 +11,19 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value = "/demandeurs")
 @CrossOrigin(origins="*")
 public class DemandeurController {
 
     @Autowired
     IDemandeurRepository demandeurRepository;
 
-    @GetMapping(value= {"/demandeurs"})
+    @GetMapping(value= {""})
     public List<Demandeur> getAll() {
         return demandeurRepository.findAll();
     }
 
-    @GetMapping(value= {"/demandeur/{id}"})
+    @GetMapping(value= {"/{id}"})
     public ResponseEntity<Demandeur> getById(@PathVariable String id) {
 
         Optional<Demandeur> result = demandeurRepository.findById(id);
@@ -33,17 +34,17 @@ public class DemandeurController {
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping(value = "/demandeur/add")
+    @PostMapping(value = "/add")
     public void addDemandeur( @RequestBody Demandeur p) {
         demandeurRepository.save(p);
     }
 
-    @DeleteMapping(value = "/demandeur/delete/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public void deleteDemandeur (@PathVariable String id){
         demandeurRepository.deleteById(id);
     }
 
-    @PutMapping(value = "/demandeur/update")
+    @PutMapping(value = "/update")
     public void updateOffre( @RequestBody Demandeur p) {
 
         demandeurRepository.save(p);
