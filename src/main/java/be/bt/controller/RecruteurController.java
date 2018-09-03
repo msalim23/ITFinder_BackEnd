@@ -1,8 +1,6 @@
 package be.bt.controller;
 
-import be.bt.domain.Demandeur;
 import be.bt.domain.Recruteur;
-import be.bt.repository.IDemandeurRepository;
 import be.bt.repository.IRecruteurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,7 +35,7 @@ public class RecruteurController {
     }
 
     @PostMapping(value = "/add")
-    public void addDemandeur( @RequestBody Recruteur p) {
+    public void addDemandeur(@RequestBody Recruteur p) {
         recruteurRepository.save(p);
     }
 
