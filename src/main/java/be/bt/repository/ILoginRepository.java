@@ -1,4 +1,7 @@
 package be.bt.repository;
 
-public interface ILoginRepository {
+import be.bt.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ILoginRepository extends JpaRepository<User,String> {
 }
